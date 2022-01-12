@@ -1,14 +1,14 @@
 {
-  "name": "web-auto-extractor",
+  "name": "@adibenmatdev/web-auto-extractor",
   "version": "1.0.1",
-  "description": "Automatically extracts structured information from webpages",
+  "description": "Automatically extracts structured information from webpages - with json repair",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
     "test": "mocha --recursive --compilers js:babel-register",
     "lint": "standard",
     "dev": "nodemon --exec npm run lint",
-    "prepublish": "npm run lint && npm run test && npm run build"
+    "prepublish": "npm run test && npm run build"
   },
   "engines": {
     "node": ">=4.4"
@@ -49,10 +49,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/indix/web-auto-extractor.git"
+    "url": "git+https://github.com/indix/web-auto-extractor.git"
   },
   "bugs": {
     "url": "https://github.com/indix/web-auto-extractor/issues"
   },
-  "tonicExampleFilename": "tonicExample.js"
+  "tonicExampleFilename": "tonicExample.js",
+  "homepage": "https://github.com/indix/web-auto-extractor#readme",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }

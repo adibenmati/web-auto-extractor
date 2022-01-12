@@ -12,7 +12,9 @@ exports.default = function (html) {
 
   $html('script[type="application/ld+json"]').each(function (index, item) {
     try {
-      var parsedJSON = JSON.parse((0, _cheerio2.default)(item).text());
+      var rawJson = (0, _cheerio2.default)(item).text();
+      var repairedJson = (0, _jsonrepair2.default)(rawJson);
+      var parsedJSON = JSON.parse(repairedJson);
       if (!Array.isArray(parsedJSON)) {
         parsedJSON = [parsedJSON];
       }
@@ -34,5 +36,9 @@ var _utils = require('./utils');
 var _cheerio = require('cheerio');
 
 var _cheerio2 = _interopRequireDefault(_cheerio);
+
+var _jsonrepair = require('jsonrepair');
+
+var _jsonrepair2 = _interopRequireDefault(_jsonrepair);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
