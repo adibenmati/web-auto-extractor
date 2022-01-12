@@ -1,5 +1,6 @@
 import { getCheerioObject } from './utils'
 import $ from 'cheerio'
+import jsonrepair from 'jsonrepair'
 
 export default function (html, config = {}) {
   const $html = getCheerioObject(html)
@@ -7,7 +8,9 @@ export default function (html, config = {}) {
 
   $html('script[type="application/ld+json"]').each((index, item) => {
     try {
-      let parsedJSON = JSON.parse($(item).text())
+      let rawJson = $(item).text();
+      let repairedJson = jsonrepair(rawJson);
+      let parsedJSON = JSON.parse(repairedJson);
       if (!Array.isArray(parsedJSON)) {
         parsedJSON = [parsedJSON]
       }
