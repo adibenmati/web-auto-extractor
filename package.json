@@ -1,6 +1,6 @@
 {
   "name": "@adibenmatdev/web-auto-extractor",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Automatically extracts structured information from webpages - with json repair",
   "main": "dist/index.js",
   "scripts": {
@@ -16,9 +16,9 @@
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.8.0",
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0-rc.12",
     "htmlparser2": "^3.9.1",
-    "jsonrepair": "^2.2.1"
+    "jsonrepair": "^3.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.8.0",

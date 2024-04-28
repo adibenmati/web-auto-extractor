@@ -9,7 +9,15 @@ export default function (html, config = {}) {
   $html('script[type="application/ld+json"]').each((index, item) => {
     try {
       let rawJson = $(item).text();
-      let repairedJson = jsonrepair(rawJson);
+      let repairedJson = rawJson;
+
+      try{
+        repairedJson = jsonrepair(rawJson);        
+      } 
+      catch(error) {  // Include an error variable
+        console.log("jsonld parser error: " + error.messsage);
+      }   
+
       let parsedJSON = JSON.parse(repairedJson);
       if (!Array.isArray(parsedJSON)) {
         parsedJSON = [parsedJSON]

@@ -13,7 +13,15 @@ exports.default = function (html) {
   $html('script[type="application/ld+json"]').each(function (index, item) {
     try {
       var rawJson = (0, _cheerio2.default)(item).text();
-      var repairedJson = (0, _jsonrepair2.default)(rawJson);
+      var repairedJson = rawJson;
+
+      try {
+        repairedJson = (0, _jsonrepair2.default)(rawJson);
+      } catch (error) {
+        // Include an error variable
+        console.log("jsonld parser error: " + error.messsage);
+      }
+
       var parsedJSON = JSON.parse(repairedJson);
       if (!Array.isArray(parsedJSON)) {
         parsedJSON = [parsedJSON];
