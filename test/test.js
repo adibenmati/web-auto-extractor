@@ -2,7 +2,7 @@
 import 'babel-polyfill'
 import fs from 'fs'
 import { assert } from 'chai'
-import WAE from '../src'
+import WAE from '../dist/index'
 
 const fileReader = (fileName) => fs.readFileSync(fileName, { encoding: 'utf-8' })
 const expectedResult = JSON.parse(fileReader('test/resources/expectedResult.json'))

@@ -12,7 +12,7 @@ export default function (html, config = {}) {
       let repairedJson = rawJson;
 
       try{
-        repairedJson = jsonrepair(rawJson);        
+        repairedJson = jsonrepair.jsonrepair(rawJson);        
       } 
       catch(error) {  // Include an error variable
         console.log("jsonld parser error: " + error.messsage);
