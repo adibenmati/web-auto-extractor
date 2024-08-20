@@ -16,7 +16,7 @@ exports.default = function (html) {
       var repairedJson = rawJson;
 
       try {
-        repairedJson = (0, _jsonrepair2.default)(rawJson);
+        repairedJson = (0, _jsonrepair.jsonrepair)(rawJson);
       } catch (error) {
         // Include an error variable
         console.log("jsonld parser error: " + error.messsage);
@@ -46,7 +46,5 @@ var _cheerio = require('cheerio');
 var _cheerio2 = _interopRequireDefault(_cheerio);
 
 var _jsonrepair = require('jsonrepair');
-
-var _jsonrepair2 = _interopRequireDefault(_jsonrepair);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

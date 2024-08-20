@@ -1,6 +1,6 @@
 import { getCheerioObject } from './utils'
 import $ from 'cheerio'
-import jsonrepair from 'jsonrepair'
+import { jsonrepair } from 'jsonrepair'
 
 export default function (html, config = {}) {
   const $html = getCheerioObject(html)
@@ -12,7 +12,7 @@ export default function (html, config = {}) {
       let repairedJson = rawJson;
 
       try{
-        repairedJson = jsonrepair.jsonrepair(rawJson);        
+        repairedJson = jsonrepair(rawJson);        
       } 
       catch(error) {  // Include an error variable
         console.log("jsonld parser error: " + error.messsage);
